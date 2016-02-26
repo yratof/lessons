@@ -1,0 +1,19 @@
+{
+  "name": "reply",
+  "version": "1.0.0",
+  "private": true,
+  "devDependencies":  {
+    "autoprefixer"          : "latest",
+    "grunt"                 : "latest",
+    "grunt-concurrent"      : "latest",
+    "grunt-contrib-imagemin": "latest",
+    "grunt-contrib-watch"   : "latest",
+    "grunt-newer"           : "latest",
+    "grunt-postcss"         : "latest",
+    "grunt-sass"            : "latest",
+    "grunt-shell"           : "latest",
+    "load-grunt-tasks"      : "latest",
+    "matchdep"              : "latest",
+    "time-grunt"            : "latest"
+  }
+}

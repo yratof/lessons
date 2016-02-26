@@ -1,0 +1,19 @@
+# Site settings
+title: Reply
+email: eyeversuseye@gmail.com
+description: Open source collection of stories and art
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "" # the base hostname & protocol for your site
+permalink: /:year/:month/:title/
+twitter_username: yratof
+github_username:  yratof
+timezone: Europe/Oslo
+
+# Extra things
+exclude: ['node_modules']
+
+# Build settings
+markdown: kramdown
+
+gems:
+  - jekyll-sitemap
