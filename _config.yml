@@ -2,7 +2,7 @@
 title: Reply
 email: eyeversuseye@gmail.com
 description: Open source collection of stories and art
-baseurl: "//yratof.github.io/reply/" # the subpath of your site, e.g. /blog/
+baseurl: "yratof.github.io/reply/" # the subpath of your site, e.g. /blog/
 url: "" # the base hostname & protocol for your site
 permalink: /:year/:month/:title/
 twitter_username: yratof
