@@ -5,7 +5,7 @@
   <nav class="site-nav">
 
     <!-- Link to the latest month -->
-    <a class="latest" href="/archive#{{ site.time | date: "%B" }}">{{ site.time | date: "%B" }}</a>
+    <a class="latest" href="{{ site.baseurl }}/archive#{{ site.time | date: "%B" }}">{{ site.time | date: "%B" }}</a>
 
     {% for page in site.pages limit:5 %}
       {% if page.title %}
