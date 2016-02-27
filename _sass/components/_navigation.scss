@@ -1,21 +1,21 @@
+.site-header{
+	padding: 1rem 0;
+  border-bottom: 1px solid fade-out( black, 0.95 );
+}
+
 .site-title{
 	font-family: $sans-serif;
-	text-transform: lowercase;
 	font-size: 3rem;
 	font-weight: 600;
 	display: inline-block;
 	vertical-align: middle;
 	text-align: center;
 	width: 100%;
+	color: $text-colour;
 
 	@include wider-than(tablet){
 		text-align: left;
 		width: 30%;
-
-		&:hover{
-			color: $blue;
-			text-decordation: none;
-		}
 	}
 }
 
@@ -31,26 +31,19 @@
 	}
 
 	a{
-		font-size: 1rem;
+		font-size: 1.5rem;
 		margin-left: 0;
 		font-family: $sans-serif;
 
-		&:last-child{
+		@include wider-than(tablet) {
 			margin-left: 2rem;
 		}
 
-		@include wider-than(tablet){
-			margin-left: 2rem;
-		}
-
-		&.latest{
-			@include not-wider-than(tablet){
-				display: block;
-			}
-
-			span{
-				color: $blue;
-			}
+		@include not-wider-than(tablet){
+			display: block;
+			font-size: 1rem;
+			width: 50%;
+			float: left;
 		}
 	}
 }

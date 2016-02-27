@@ -1,0 +1,87 @@
+.bilboard{
+  border-bottom: 1px solid fade-out( black, 0.95 );
+
+  padding: 2rem 0;
+  margin: 0 0 2rem;
+
+  strong{
+    @include modular( 1.5rem );
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  h1{
+    @include modular( 4rem );
+    a{
+      color: $text-colour;
+      text-decoration: none;
+    }
+  }
+}
+
+
+.featured {
+
+  @at-root #{&}__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    @at-root #{&}--item {
+      flex: 1 0 400px;
+      padding: 2rem 0;
+      border-bottom: 1px solid fade-out( black, 0.95 );
+      position: relative;
+
+      .note {
+        font-size: 0.75rem;
+        top: 2.35rem;
+        position: absolute;
+      }
+
+      .note-nudge {
+        padding-left: 5rem;
+      }
+
+      strong{
+        @include modular( 1.25rem );
+      }
+      h2{
+        @include modular( 1.25rem );
+        font-weight: 400;
+      }
+    }
+  }
+}
+
+.post-content{
+  @include wider-than(tablet){
+    max-width: 60%;
+  }
+}
+
+input{
+  &[type="text"],
+  &[type="email"]{
+    font-size: 1.5rem;
+    padding: 0.25rem 0.75rem;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+}
+
+button{
+  color: white;
+  background-color: $brand-colour;
+  border: 0;
+  @include modular( 1.5rem );
+  display: block;
+  padding: 0.25rem 0.75rem;
+}
+
+.single{
+  margin-top: 1.5rem;
+}

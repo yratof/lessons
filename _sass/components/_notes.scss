@@ -1,0 +1,26 @@
+.note{
+  background-color: $brand-colour;
+  border-radius: 3px;
+  padding: 0.125rem 0.5rem;
+  color: white;
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  margin-right: 0.5rem;
+
+  &:after{
+    $size: 5px;
+    content: " ";
+    left: 100%;
+    top: 50%;
+    border: solid transparent;
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-color: fade-out( $brand-colour, 1 );
+    border-left-color: $brand-colour;
+    border-width: $size;
+    margin-top: -$size;
+  }
+}

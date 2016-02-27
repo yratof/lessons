@@ -2,7 +2,9 @@
 Stylesheet: Mixins & Constants Stylesheet
 ******************************************************************/
 * {
-  box-sizing: border-box; }
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box; }
 
 /*
 	These are the breakpoints for your website. These can be customised to your design. The
@@ -65,7 +67,9 @@ Simply use this in a class somewhere to add placeholder styles.
 .vertical {
   position: absolute;
   top: 50%;
-  transform: translateY(-50%); }
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%); }
   .vertical.horizontal {
     width: 100%;
     text-align: center;
@@ -109,7 +113,7 @@ C O N T E N T   C H O R E O G R A P H Y
 Something that will reorder your content if used correctly.
 And on the right browser, of course.
 **********************/
-/* This is quite an experiment with font sizes. 
+/* This is quite an experiment with font sizes.
  Basically, i'm using a modualr scale for the type. */
 /* 	This mixin will help you nest mediaqueries easier.
 	@Usage:
@@ -137,212 +141,104 @@ p {
 
 h1, h2, h3, h4, h5, h6 {
   text-rendering: optimizelegibility;
-  color: #333;
+  color: #000;
   font-weight: 300;
   margin: 0;
   font-family: "Fira Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; }
 
 h1, .h1 {
-  font-size: modular-scale(-4, 2.875rem, 1.067);
+  font-size: 2.2181rem;
   font-weight: 600; }
-  @media (min-width: 37rem) {
+  @media only screen and (min-width: 37rem) {
     h1, .h1 {
-      font-size: modular-scale(-4, 2.875rem, 1.067); } }
-  @media (min-width: 48rem) {
+      font-size: 2.36671rem; } }
+  @media only screen and (min-width: 48rem) {
     h1, .h1 {
-      font-size: modular-scale(-3, 2.875rem, 1.067); } }
-  @media (min-width: 55rem) {
+      font-size: 2.52528rem; } }
+  @media only screen and (min-width: 55rem) {
     h1, .h1 {
-      font-size: modular-scale(-2, 2.875rem, 1.067); } }
-  @media (min-width: 62rem) {
-    h1, .h1 {
-      font-size: modular-scale(-1, 2.875rem, 1.067); } }
-  @media (min-width: 75rem) {
+      font-size: 2.69447rem; } }
+  @media only screen and (min-width: 62rem) {
     h1, .h1 {
       font-size: 2.875rem; } }
 
 h2, .h2 {
-  font-size: modular-scale(-4, 1.875rem, 1.067);
+  font-size: 1.44658rem;
   font-weight: 600; }
-  @media (min-width: 37rem) {
+  @media only screen and (min-width: 37rem) {
     h2, .h2 {
-      font-size: modular-scale(-4, 1.875rem, 1.067); } }
-  @media (min-width: 48rem) {
+      font-size: 1.5435rem; } }
+  @media only screen and (min-width: 48rem) {
     h2, .h2 {
-      font-size: modular-scale(-3, 1.875rem, 1.067); } }
-  @media (min-width: 55rem) {
+      font-size: 1.64692rem; } }
+  @media only screen and (min-width: 55rem) {
     h2, .h2 {
-      font-size: modular-scale(-2, 1.875rem, 1.067); } }
-  @media (min-width: 62rem) {
-    h2, .h2 {
-      font-size: modular-scale(-1, 1.875rem, 1.067); } }
-  @media (min-width: 75rem) {
+      font-size: 1.75726rem; } }
+  @media only screen and (min-width: 62rem) {
     h2, .h2 {
       font-size: 1.875rem; } }
 
 h3, .h3 {
-  font-size: modular-scale(-4, 1.5rem, 1.067);
+  font-size: 1.15727rem;
   font-family: "Fira Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #0000ff; }
-  @media (min-width: 37rem) {
+  @media only screen and (min-width: 37rem) {
     h3, .h3 {
-      font-size: modular-scale(-4, 1.5rem, 1.067); } }
-  @media (min-width: 48rem) {
+      font-size: 1.2348rem; } }
+  @media only screen and (min-width: 48rem) {
     h3, .h3 {
-      font-size: modular-scale(-3, 1.5rem, 1.067); } }
-  @media (min-width: 55rem) {
+      font-size: 1.31754rem; } }
+  @media only screen and (min-width: 55rem) {
     h3, .h3 {
-      font-size: modular-scale(-2, 1.5rem, 1.067); } }
-  @media (min-width: 62rem) {
-    h3, .h3 {
-      font-size: modular-scale(-1, 1.5rem, 1.067); } }
-  @media (min-width: 75rem) {
+      font-size: 1.40581rem; } }
+  @media only screen and (min-width: 62rem) {
     h3, .h3 {
       font-size: 1.5rem; } }
 
 h4, .h4 {
-  font-size: modular-scale(-4, 1.125rem, 1.067); }
-  @media (min-width: 37rem) {
+  font-size: 0.86795rem; }
+  @media only screen and (min-width: 37rem) {
     h4, .h4 {
-      font-size: modular-scale(-4, 1.125rem, 1.067); } }
-  @media (min-width: 48rem) {
+      font-size: 0.9261rem; } }
+  @media only screen and (min-width: 48rem) {
     h4, .h4 {
-      font-size: modular-scale(-3, 1.125rem, 1.067); } }
-  @media (min-width: 55rem) {
+      font-size: 0.98815rem; } }
+  @media only screen and (min-width: 55rem) {
     h4, .h4 {
-      font-size: modular-scale(-2, 1.125rem, 1.067); } }
-  @media (min-width: 62rem) {
-    h4, .h4 {
-      font-size: modular-scale(-1, 1.125rem, 1.067); } }
-  @media (min-width: 75rem) {
+      font-size: 1.05436rem; } }
+  @media only screen and (min-width: 62rem) {
     h4, .h4 {
       font-size: 1.125rem; } }
 
 h5, .h5 {
-  font-size: modular-scale(-4, 1rem, 1.067); }
-  @media (min-width: 37rem) {
+  font-size: 0.77151rem; }
+  @media only screen and (min-width: 37rem) {
     h5, .h5 {
-      font-size: modular-scale(-4, 1rem, 1.067); } }
-  @media (min-width: 48rem) {
+      font-size: 0.8232rem; } }
+  @media only screen and (min-width: 48rem) {
     h5, .h5 {
-      font-size: modular-scale(-3, 1rem, 1.067); } }
-  @media (min-width: 55rem) {
+      font-size: 0.87836rem; } }
+  @media only screen and (min-width: 55rem) {
     h5, .h5 {
-      font-size: modular-scale(-2, 1rem, 1.067); } }
-  @media (min-width: 62rem) {
-    h5, .h5 {
-      font-size: modular-scale(-1, 1rem, 1.067); } }
-  @media (min-width: 75rem) {
+      font-size: 0.93721rem; } }
+  @media only screen and (min-width: 62rem) {
     h5, .h5 {
       font-size: 1rem; } }
 
 h6, .h6 {
-  font-size: modular-scale(-4, 0.85rem, 1.067); }
-  @media (min-width: 37rem) {
+  font-size: 0.65578rem; }
+  @media only screen and (min-width: 37rem) {
     h6, .h6 {
-      font-size: modular-scale(-4, 0.85rem, 1.067); } }
-  @media (min-width: 48rem) {
+      font-size: 0.69972rem; } }
+  @media only screen and (min-width: 48rem) {
     h6, .h6 {
-      font-size: modular-scale(-3, 0.85rem, 1.067); } }
-  @media (min-width: 55rem) {
+      font-size: 0.7466rem; } }
+  @media only screen and (min-width: 55rem) {
     h6, .h6 {
-      font-size: modular-scale(-2, 0.85rem, 1.067); } }
-  @media (min-width: 62rem) {
-    h6, .h6 {
-      font-size: modular-scale(-1, 0.85rem, 1.067); } }
-  @media (min-width: 75rem) {
+      font-size: 0.79663rem; } }
+  @media only screen and (min-width: 62rem) {
     h6, .h6 {
       font-size: 0.85rem; } }
-
-/* My Face */
-.profile {
-  background-image: url("/assets/imgs/eve_device.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: right center;
-  text-align: center;
-  padding-top: 2rem;
-  padding-bottom: 7rem;
-  height: calc(100vh - 95px); }
-  @media (min-width: 37rem) {
-    .profile {
-      height: calc(100vh - 72px);
-      background-image: url("/assets/imgs/eve_scroll.jpg");
-      background-size: auto 400%;
-      background-repeat: repeat-y;
-      background-attachment: fixed;
-      background-position: center center;
-      background-color: #fcfcfc;
-      padding-top: 14rem;
-      padding-bottom: 10rem;
-      animation-name: flicker;
-      animation-duration: 1s;
-      animation-direction: normal;
-      animation-timing-function: steps(3);
-      animation-iteration-count: infinite;
-      animation-fill-mode: forwards; } }
-
-.masthead {
-  padding: 0 10px;
-  width: 90%;
-  text-align: left; }
-  .masthead br {
-    display: none; }
-  @media (min-width: 48rem) {
-    .masthead {
-      text-align: center;
-      width: 60%; }
-      .masthead br {
-        display: block; } }
-  @media (min-width: 62rem) {
-    .masthead {
-      width: 50%; } }
-
-@keyframes flicker {
-  0% {
-    background-position: 100% 0; }
-  100% {
-    background-position: 100% 100%; } }
-.site-title {
-  font-family: "Fira Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  text-transform: lowercase;
-  font-size: 3rem;
-  font-weight: 600;
-  display: inline-block;
-  vertical-align: middle;
-  text-align: center;
-  width: 100%; }
-  @media (min-width: 48rem) {
-    .site-title {
-      text-align: left;
-      width: 30%; }
-      .site-title:hover {
-        color: #0000ff;
-        text-decordation: none; } }
-
-.site-nav {
-  display: inline-block;
-  vertical-align: middle;
-  text-align: center;
-  width: 100%; }
-  @media (min-width: 48rem) {
-    .site-nav {
-      width: 69%;
-      text-align: right; } }
-  .site-nav a {
-    font-size: 1rem;
-    margin-left: 0;
-    font-family: "Fira Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; }
-    .site-nav a:last-child {
-      margin-left: 2rem; }
-    @media (min-width: 48rem) {
-      .site-nav a {
-        margin-left: 2rem; } }
-    @media (max-width: 48rem) {
-      .site-nav a.latest {
-        display: block; } }
-    .site-nav a.latest span {
-      color: #0000ff; }
 
 /**
  * Reset some basic elements
@@ -358,15 +254,11 @@ dl, dd, ol, ul, figure {
  */
 body {
   font-family: "Fira Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 16px;
+  font-size: 100%;
   line-height: 1.5;
   font-weight: 400;
-  color: #333;
-  background-color: white;
-  -webkit-text-size-adjust: 100%; }
-  @media (min-width: 75rem) {
-    body {
-      font-size: 140%; } }
+  color: #000;
+  background-color: white; }
 
 /**
  * Set `margin-bottom` to maintain vertical rhythm
@@ -437,9 +329,13 @@ code {
   white-space: pre-wrap;
   border: 1px solid #eaeaea;
   background-color: #f8f8f8;
-  border-radius: 3px;
+  -webkit-border-radius: 3px;
+          border-radius: 3px;
   font-family: Inconsolata, monospace;
-  hyphens: none; }
+  -webkit-hyphens: none;
+     -moz-hyphens: none;
+      -ms-hyphens: none;
+          hyphens: none; }
 
 pre {
   padding: 8px 12px;
@@ -630,3 +526,203 @@ pre {
     color: #008080; }
   .highlight .il {
     color: #099; }
+
+.note {
+  background-color: #0000ff;
+  -webkit-border-radius: 3px;
+          border-radius: 3px;
+  padding: 0.125rem 0.5rem;
+  color: white;
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  margin-right: 0.5rem; }
+  .note:after {
+    content: " ";
+    left: 100%;
+    top: 50%;
+    border: solid transparent;
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-color: rgba(0, 0, 255, 0);
+    border-left-color: #0000ff;
+    border-width: 5px;
+    margin-top: -5px; }
+
+.site-header {
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05); }
+
+.site-title {
+  font-family: "Fira Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 3rem;
+  font-weight: 600;
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+  width: 100%;
+  color: #000; }
+  @media (min-width: 48rem) {
+    .site-title {
+      text-align: left;
+      width: 30%; } }
+
+.site-nav {
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+  width: 100%; }
+  @media (min-width: 48rem) {
+    .site-nav {
+      width: 69%;
+      text-align: right; } }
+  .site-nav a {
+    font-size: 1.5rem;
+    margin-left: 0;
+    font-family: "Fira Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+    @media (min-width: 48rem) {
+      .site-nav a {
+        margin-left: 2rem; } }
+    @media (max-width: 48rem) {
+      .site-nav a {
+        display: block;
+        font-size: 1rem;
+        width: 50%;
+        float: left; } }
+
+.bilboard {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 2rem 0;
+  margin: 0 0 2rem; }
+  .bilboard strong {
+    font-size: 1.15727rem;
+    display: inline-block;
+    vertical-align: middle; }
+    @media only screen and (min-width: 37rem) {
+      .bilboard strong {
+        font-size: 1.2348rem; } }
+    @media only screen and (min-width: 48rem) {
+      .bilboard strong {
+        font-size: 1.31754rem; } }
+    @media only screen and (min-width: 55rem) {
+      .bilboard strong {
+        font-size: 1.40581rem; } }
+    @media only screen and (min-width: 62rem) {
+      .bilboard strong {
+        font-size: 1.5rem; } }
+  .bilboard h1 {
+    font-size: 3.08605rem; }
+    @media only screen and (min-width: 37rem) {
+      .bilboard h1 {
+        font-size: 3.29281rem; } }
+    @media only screen and (min-width: 48rem) {
+      .bilboard h1 {
+        font-size: 3.51343rem; } }
+    @media only screen and (min-width: 55rem) {
+      .bilboard h1 {
+        font-size: 3.74883rem; } }
+    @media only screen and (min-width: 62rem) {
+      .bilboard h1 {
+        font-size: 4rem; } }
+    .bilboard h1 a {
+      color: #000;
+      text-decoration: none; }
+
+.featured__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+     -moz-box-orient: horizontal;
+     -moz-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap; }
+  .featured__list--item {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 0 400px;
+       -moz-box-flex: 1;
+        -ms-flex: 1 0 400px;
+            flex: 1 0 400px;
+    padding: 2rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    position: relative; }
+    .featured__list--item .note {
+      font-size: 0.75rem;
+      top: 2.35rem;
+      position: absolute; }
+    .featured__list--item .note-nudge {
+      padding-left: 5rem; }
+    .featured__list--item strong {
+      font-size: 0.96439rem; }
+      @media only screen and (min-width: 37rem) {
+        .featured__list--item strong {
+          font-size: 1.029rem; } }
+      @media only screen and (min-width: 48rem) {
+        .featured__list--item strong {
+          font-size: 1.09795rem; } }
+      @media only screen and (min-width: 55rem) {
+        .featured__list--item strong {
+          font-size: 1.17151rem; } }
+      @media only screen and (min-width: 62rem) {
+        .featured__list--item strong {
+          font-size: 1.25rem; } }
+    .featured__list--item h2 {
+      font-size: 0.96439rem;
+      font-weight: 400; }
+      @media only screen and (min-width: 37rem) {
+        .featured__list--item h2 {
+          font-size: 1.029rem; } }
+      @media only screen and (min-width: 48rem) {
+        .featured__list--item h2 {
+          font-size: 1.09795rem; } }
+      @media only screen and (min-width: 55rem) {
+        .featured__list--item h2 {
+          font-size: 1.17151rem; } }
+      @media only screen and (min-width: 62rem) {
+        .featured__list--item h2 {
+          font-size: 1.25rem; } }
+
+@media (min-width: 48rem) {
+  .post-content {
+    max-width: 60%; } }
+
+input[type="text"], input[type="email"] {
+  font-size: 1.5rem;
+  padding: 0.25rem 0.75rem;
+  display: block;
+  margin-bottom: 0.5rem; }
+
+button {
+  color: white;
+  background-color: #0000ff;
+  border: 0;
+  font-size: 1.15727rem;
+  display: block;
+  padding: 0.25rem 0.75rem; }
+  @media only screen and (min-width: 37rem) {
+    button {
+      font-size: 1.2348rem; } }
+  @media only screen and (min-width: 48rem) {
+    button {
+      font-size: 1.31754rem; } }
+  @media only screen and (min-width: 55rem) {
+    button {
+      font-size: 1.40581rem; } }
+  @media only screen and (min-width: 62rem) {
+    button {
+      font-size: 1.5rem; } }
+
+.single {
+  margin-top: 1.5rem; }

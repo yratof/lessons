@@ -52,25 +52,3 @@ $gutter: 1.875rem;
     margin-right: calc(#{$guttering});
   }
 }
-
-// Tablet+ gutters
-$large_gutter:  4rem;
-$small_gutter:  3.5rem;
-
-// Mobile gutter
-$m_large_gutter:  2.5rem;
-$m_small_gutter:  1.75rem;
-
-
-@mixin small_gutter( $element ){
-  #{$element}: $m_small_gutter;
-  @media only screen and #{$tablet} {
-    #{$element}: $small_gutter;
-  }
-}
-@mixin large_gutter( $element ){
-  #{$element}: $m_large_gutter;
-  @media only screen and #{$tablet} {
-    #{$element}: $large_gutter;
-  }
-}

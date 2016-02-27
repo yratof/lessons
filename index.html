@@ -4,11 +4,33 @@ layout: home
 
 <header id="bilboard" class="bilboard">
   <!-- Bilboard -->
+  {% for post in site.posts limit: 1 %}
+    <span class="note featured">Featured</span>
+    <strong>{{ post.author }}</strong>
+    <h1>
+      <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">
+        {{ post.title | truncatewords: 15 }}
+      </a>
+    </h1>
+  {% endfor %}
 </header>
 
 <section id="archive" class="archive">
-  <!-- List of all posts featured -->
-
+  <ul class="featured__list">
+    {% for post in site.posts offset: 1 %}
+      <li class="featured__list--item">
+        <span class="note featured">{{ post.date | date: "%B" }}</span>
+        <div class="note-nudge">
+          <strong>{{ post.author }}</strong>
+          <h2>
+            <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">
+              {{ post.title | truncatewords: 10 }}
+            </a>
+          </h2>
+        </div>
+      </li>
+    {% endfor %}
+  </ul>
 </section>
 
 <footer id="credits" class="credits">

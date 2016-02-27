@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Submit</title>
+  <title>Submissions</title>
   <meta name="description" content="Open source collection of stories and art">
   <link rel="shortcut icon" type="image/png" href="/favicon.png">
   <link rel="stylesheet" href="/css/main.css">
@@ -17,37 +17,33 @@
 
   <body>
 
-    <header class="site-header">
+    <header class="site-header w">
 
-  <div class="wrapper">
+  <a class="site-title" href="/">Reply</a>
 
-    <a class="site-title" href="/">Reply</a>
+  <nav class="site-nav">
 
-    <nav class="site-nav">
+    <!-- Link to the latest month -->
+    <a class="latest" href="/archive#February">February</a>
 
-        <!-- Link to the latest month -->
-        <a class="latest" href="/archive#February">February</a>
-
-        
-          
-          <a class="page-link" href="/archive/">Archive</a>
-          
-        
-          
-        
-          
-        
-          
-          <a class="page-link" href="/readme/">Readme.txt</a>
-          
-        
-          
-          <a class="page-link" href="/submit/">Submit</a>
-          
-        
-    </nav>
-
-  </div>
+    
+      
+      <a class="page-link " href="/archive/">Archive</a>
+      
+    
+      
+    
+      
+    
+      
+      <a class="page-link " href="/readme/">Readme.txt</a>
+      
+    
+      
+      <a class="page-link " href="/submit/">Submissions</a>
+      
+    
+  </nav>
 
 </header>
 
@@ -57,11 +53,19 @@
         <div class="post single ma">
 
   <header class="post-header">
-    <h1 class="post-title">Submit</h1>
+    <h1 class="post-title">Submissions</h1>
   </header>
 
   <article class="post-content">
-    <p>%Mailchimp% + %form%</p>
+    <p>Everything is reviewed, everything is responded to. Any written content should be submitted as a <a href="http://gist.github.com">gist</a></p>
+
+<form accept-charset="UTF-8" action="https://formkeep.com/f/bd263b1fa349" method="POST">
+  <input type="hidden" name="utf8" value="✓" />
+  <input type="text" required="required" name="full_name" placeholder="Your Name" />
+  <input type="email" required="required" name="email" placeholder="Your Email" />
+  <input type="text" required="required" name="gist" placeholder="Paste your gist link" />
+  <button type="submit">Submit</button>
+</form>
 
   </article>
 

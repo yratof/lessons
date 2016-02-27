@@ -9,15 +9,16 @@
 // Vars
 @import "vars";
 
-// elements
-@import "components/type",
-				"components/background",
-				"components/navigation"
-;
 
 // Import partials from `sass_dir` (defaults to `_sass`)
-@import
+@import "components/type",
         "base",
         "layout",
         "syntax-highlighting"
+;
+
+// elements
+@import "components/notes",
+        "components/navigation",
+				"components/front-page"
 ;
