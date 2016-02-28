@@ -18,8 +18,15 @@ layout: home
 <section id="archive" class="archive">
   <ul class="featured__list">
     {% for post in site.posts offset: 1 %}
-      <li class="featured__list--item">
-        <span class="note featured">{{ post.date | date: "%B" }}</span>
+
+      <li class="featured__list--item {{ post.meta.highlight }}">
+        <a href="{{ site.baseurl }}/archive#{{ post.date | date: "%B" }}" class="note featured">
+          {% if post.meta.highlight %}
+            {{ post.meta.highlight | capitalize }}
+          {% else %}
+            {{ post.date | date: "%B" }}
+          {% endif %}
+        </a>
         <div class="note-nudge">
           <strong>{{ post.author }}</strong>
           <h2>

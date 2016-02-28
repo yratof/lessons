@@ -9,9 +9,9 @@
   margin-left: auto;
   @extend %clearfix;
 
-  @include wider-than(tablet){	max-width: $tablet; }
-  @include wider-than(desktop){	max-width: $desktop; }
-  @include wider-than(cinema){	max-width: $cinema; }
+  @include wider-than(tablet){	max-width: $phablet; }
+  @include wider-than(desktop) {	max-width: $tablet; }
+  @include wider-than(cinema) {	max-width: $desktop; }
 }
 
 .ma{

@@ -1,8 +1,8 @@
 # Site settings
-title: Reply
+title: Lessons
 email: eyeversuseye@gmail.com
-description: Open source collection of stories and art
-baseurl: "/reply" # the subpath of your site, e.g. /blog/
+description: Open source collections of lessons learned.
+baseurl: "/lessons" # the subpath of your site, e.g. /blog/
 url: "yratof.github.io" # the base hostname & protocol for your site
 permalink: /:year/:month/:title/
 twitter_username: yratof

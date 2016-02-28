@@ -10,25 +10,25 @@
 
 // min-width mediaquery
 @mixin wider-than($screen-size) {
-  @if map-has-key($breakpoints, $screen-size) {
-      @media (min-width: map-get($breakpoints, $screen-size)) {
-          @content;
-      }
-  } @else {
+	@if map-has-key($breakpoints, $screen-size) {
+		@media (min-width: map-get($breakpoints, $screen-size)) {
+			@content;
+		}
+	} @else {
       // Debugging
       @warn "'#{$screen-size}' has not been declared as a breakpoint."
+    }
   }
-}
 
-// max-width mediaquery
-@mixin not-wider-than($screen-size) {
-  @if map-has-key($breakpoints, $screen-size) {
-      @media (max-width: map-get($breakpoints, $screen-size)) {
-          @content;
+  // max-width mediaquery
+  @mixin not-wider-than($screen-size) {
+  	@if map-has-key($breakpoints, $screen-size) {
+  		@media (max-width: map-get($breakpoints, $screen-size)) {
+  			@content;
+  		}
+  	} @else {
+        // Debugging
+        @warn "'#{$screen-size}' has not been declared as a breakpoint."
       }
-  } @else {
-      // Debugging
-      @warn "'#{$screen-size}' has not been declared as a breakpoint."
-  } 
-}
+    }
 

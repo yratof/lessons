@@ -6,40 +6,57 @@
 	gives you white or dark grey text colour.
 *************************************/
 
-@mixin btn($colour, $style: false){
+%btn{
+  // Basic button styles
+	border: 0;
+	text-indent:0;
+	display: inline-block;
+	cursor: pointer;
+	outline: none;
+  font-weight: 600;
+  // Font style within button
+	font-style: normal;
+	text-decoration: none;
+	text-align: center;
 
-	@if ($style) {
-		// Standard styles
-		border: 0;
-		text-indent:0;
-		display: inline-block;
-		font-weight: 700;
-		font-style: normal;
-		text-decoration: none;
-		text-align: center;
-		cursor: pointer;
-		outline: none; 
-		border-radius: 0;
-		-webkit-font-smoothing: antialiased;
-		@include appearance(none);
-		
-		padding: 0.25rem 0.75rem;
-		@include wider-than(phablet){padding: 0.3rem 0.8rem;}
-		@include wider-than(tablet){padding: 0.5rem 1rem;}
+  // Button appearance
+	border-radius: 4rem;
+	font-smoothing: antialiased;
+	appearance: none;
 
-    @include modular(1.25rem);
+	// Sizing
+	padding: 0.844rem 1rem;		// THIS
+	line-height: 1.12rem; 			// IS
+	font-size: 0.875rem; 				// 45PX!
+
+	@include wider-than(tablet){
+		padding: 0.938rem 1.6rem;	  // THIS
+		line-height: 1.2rem; 		  // IS
+		font-size: 0.9375rem; 		// 50PX!
 	}
-	
-	/**********************************
-	 This determines the background colour
-	 in a greyscale manner, if it's lighter
-	 than 40% lightness, the text colour
-	 becomes dark to compensate.
-	**********************************/
+}
 
-	color: $white;
+@mixin btn(
+	$colour:	$brand-colour,
+	$hover: 	desaturate(darken($colour, 6%), 5%),
+	$active: 	desaturate(darken($colour, 3%), 5%)
+	){
+	@extend %btn;
+
+  // Colouring
+	color: white;
 	background-color: $colour;
+	transition: background-color 0.1s $curve;
 
-  &:hover, &:focus, &:active  { background-color: darken($colour, 10%); }
-	
+  &:hover{
+  	background-color: $hover;
+  	color: white;
+  	text-decoration: none;
+  }
+
+  &:focus,
+  &:active  {
+  	background-color: $active;
+  	color: white;
+  }
 }

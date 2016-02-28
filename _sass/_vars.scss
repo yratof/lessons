@@ -10,17 +10,17 @@ $alert-blue:			#209dd6;
 
 $black:						#000;
 $white:						#fff;
-$text-colour:     #000;
+$text-colour:     lighten( #000, 5% );
 
 // Primary colours
 
 $red:							#ff6347;
-$blue:						#0000ff;
+$blue:						#005eff;
 $green:						#b4d555;
 
 $brand-colour:		$blue;
 $brand-highlight:	$blue;
-$brand-compliment:$blue;
+$brand-alt:       #F4366B;
 
 // Links and Anchors
 

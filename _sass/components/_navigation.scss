@@ -5,7 +5,7 @@
 
 .site-title{
 	font-family: $sans-serif;
-	font-size: 3rem;
+	@include modular( 2.5rem );
 	font-weight: 600;
 	display: inline-block;
 	vertical-align: middle;
@@ -31,12 +31,12 @@
 	}
 
 	a{
-		font-size: 1.5rem;
+		@include modular( 1.5rem, $major-third );
 		margin-left: 0;
 		font-family: $sans-serif;
 
 		@include wider-than(tablet) {
-			margin-left: 2rem;
+			@include modular-element( margin-left, 1.5rem );
 		}
 
 		@include not-wider-than(tablet){

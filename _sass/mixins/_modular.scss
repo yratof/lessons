@@ -72,17 +72,17 @@ $modular-scale-base: 1em !default;
  Basically, i'm using a modualr scale for the type. */
 
 @mixin modular($largest, $ratio: $minor-second){
-                                        font-size: modular-scale(-4, $largest, $ratio);
-  @media only screen and ( min-width: #{$phablet} ) { font-size: modular-scale(-3, $largest, $ratio); }
-  @media only screen and ( min-width: #{$tablet}  ) { font-size: modular-scale(-2, $largest, $ratio); }
-  @media only screen and ( min-width: #{$desklet} ) { font-size: modular-scale(-1, $largest, $ratio); }
-  @media only screen and ( min-width: #{$desktop} ) { font-size: ($largest); }
+                                   font-size: modular-scale(-4, $largest, $ratio);
+  @include wider-than( phablet ) { font-size: modular-scale(-3, $largest, $ratio); }
+  @include wider-than( tablet )  { font-size: modular-scale(-2, $largest, $ratio); }
+  @include wider-than( desklet ) { font-size: modular-scale(-1, $largest, $ratio); }
+  @include wider-than( desktop ) { font-size: ($largest); }
 }
 
 @mixin modular-element($element, $largest, $ratio: $minor-second){
-                                      #{$element}: modular-scale(-4, $largest, $ratio);
-  @media only screen and ( min-width: #{$phablet} ) { #{$element}: modular-scale(-3, $largest, $ratio); }
-  @media only screen and ( min-width: #{$tablet}  ) { #{$element}: modular-scale(-2, $largest, $ratio); }
-  @media only screen and ( min-width: #{$desklet} ) { #{$element}: modular-scale(-1, $largest, $ratio); }
-  @media only screen and ( min-width: #{$desktop} ) { #{$element}: ($largest); }
+                                  #{$element}: modular-scale(-4, $largest, $ratio);
+  @include wider-than(phablet ) { #{$element}: modular-scale(-3, $largest, $ratio); }
+  @include wider-than(tablet  ) { #{$element}: modular-scale(-2, $largest, $ratio); }
+  @include wider-than(desklet ) { #{$element}: modular-scale(-1, $largest, $ratio); }
+  @include wider-than(desktop ) { #{$element}: ($largest); }
 }

@@ -4,7 +4,6 @@ Stylesheet: Mixins & Constants Stylesheet
 
 * { box-sizing: border-box; }
 
-
 /*
 	These are the breakpoints for your website. These can be customised to your design. The
 	more that I think about it, the more I'm starting to realise that these breakpoints
@@ -15,10 +14,10 @@ Stylesheet: Mixins & Constants Stylesheet
 // Rems
 $base:		20rem;
 $mobile: 	30rem;
-$phablet:	37rem;
-$tablet: 	48rem;
-$desklet: 55rem;
-$desktop: 62rem;
+$phablet:	40rem;
+$tablet: 	50rem;
+$desklet: 58rem;
+$desktop: 65rem;
 $cinema: 	75rem;
 
 $breakpoints: (
@@ -30,24 +29,21 @@ $breakpoints: (
 	cinema:		$cinema
 );
 
-/* This mixins file was starting to get way too big. So I've cut it down into fragments. */
-
-@import 'mixins/clearfix',
-				'mixins/blend-mode',
-				'mixins/gradient',
-				'mixins/placeholder',
-				'mixins/screen-readers',
-				'mixins/vertical-align',
-				'mixins/flush-columns',
-				'mixins/button',
-				'mixins/element-counting',
-				'mixins/inline-block',
-				'mixins/content-order',
-				'mixins/modular',
-				'mixins/mediaqueries',
-				'mixins/font-smoothing',
-				'mixins/brightness',
-				'mixins/encode-svgs'
-;
-
-
+@import "mixins/_functions",
+				"mixins/mediaqueries",
+				"mixins/blend-mode",
+				"mixins/brightness",
+				"mixins/button",
+				"mixins/clearfix",
+				"mixins/content-order",
+				"mixins/element-counting",
+				"mixins/encode-svgs",
+				"mixins/flush-columns",
+				"mixins/font-smoothing",
+				"mixins/gradient",
+				"mixins/grids",
+				"mixins/inline-block",
+				"mixins/modular",
+				"mixins/placeholder",
+				"mixins/screen-readers",
+				"mixins/vertical-align";

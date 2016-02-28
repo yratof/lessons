@@ -10,7 +10,90 @@ Stylesheet: Mixins & Constants Stylesheet
 	need to change for the design, and not for the sizes they are. They're just a guide.
 	In fact, I insist, you MUST change these.
 */
-/* This mixins file was starting to get way too big. So I've cut it down into fragments. */
+/*********************
+COLOR FUNCTIONS
+These are helpful when you're working
+with shadows and such things. It's essentially
+a quicker way to write RGBA.
+
+Example:
+box-shadow: 0 0 4px black(0.3);
+compiles to:
+box-shadow: 0 0 4px rgba(0,0,0,0.3);
+*********************/
+/* 
+
+Rems for the future, PX for the past.
+
+This is a function that has been created to
+remove the need to write everything twice when it comes to REMs and PX.
+
+Basically, when you use u(3rem), the px-only variable on the style, 
+android and ie page tells the preprocessor to either change all 
+values in the breakpoint stylesheets to be either REM or PX, 
+and it'll do the math around it. So what you're left with is more hair
+at the end of the day.
+
+Source: http://davidwalsh.name/rem-px-browser-function-sass
+@Useage: u(3rem); 
+ 
+*/
+/* 1 */
+/* This solves an issue with 1px == 1 and 1em == 1, thus 1px == 1em */
+/************************
+	SQUARE ROOTS
+*************************/
+/*/////////////////////////////
+// Exponent
+/////////////////////////////*/
+/*************************************
+This converts columns to pixels based 
+on the $content width 
+*************************************/
+/*********************
+RESPONSIVE HELPER FUNCTION
+If you're creating a responsive site, then
+you've probably already read
+Responsive Web Design: http://www.abookapart.com/products/responsive-web-design
+
+Here's a nice little helper function for calculating
+target / context
+as mentioned in that book.
+
+Example:
+width: cp(650px, 1000px);
+or
+width: calc-percent(650px, 1000px);
+both compile to:
+width: 65%;
+*********************/
+/* 	This mixin will help you nest mediaqueries easier.
+	@Usage:
+		@include wider-than(mobile) 	{ width: 55%; 	}
+		@include wider-than(phablet) 	{ width: 65%; 	}
+		@include wider-than(tablet) 	{ width: 75%;	}
+
+	Uses the breakpoint map defined inside _breakpoints.scss
+*/
+/* 
+	Blend Modes
+	===========
+	http://caniuse.com/#feat=css-backgroundblendmode
+	@usage:  
+		@include blended("url", $colour);
+		@include blended("url", $grad: $love);
+
+*/
+/*********************
+Background colour based on brightness
+*********************/
+/************************************
+		B U T T O N   C O L O U R S
+	This mixin gives you a button in any
+	colour that you want. It then decides
+	if the background is dark or light and
+	gives you white or dark grey text colour.
+*************************************/
 /*********************
 CLEARFIXIN'
 *********************/
@@ -22,21 +105,53 @@ CLEARFIXIN'
   .clearfix:after, .cf:after {
     clear: both; }
 
-/* 
-	Blend Modes
-	===========
-	http://caniuse.com/#feat=css-backgroundblendmode
-	@usage:  
-		@include blended("url", $colour);
-		@include blended("url", $grad: $love);
+/*********************
+C O N T E N T   C H O R E O G R A P H Y
+Something that will reorder your content if used correctly.
+And on the right browser, of course.
+**********************/
+/*
+	Counting Elements can be fun.
+	http://www.sitepoint.com/using-sass-quantity-queries/
+
+	// If there are exactly 5 elements:
+	@include count-is(5){
+		// Say something beautiful
+	}
+
+	// If there are less than 3 elements:
+	@include count-is-less-than(3){
+		// Say something beautiful
+	}
+
+	// If there are 3 or more elements:
+	@include count-is-more-than(3){
+		// Say something beautiful
+	}
 
 */
+/* Font Smoothing - http://maximilianhoffmann.com/posts/better-font-rendering-on-osx */
 /*********************
 CSS3 GRADIENTS
 Be careful with these since they can
 really slow down your CSS. Don't overdo it.
 *********************/
 /* @include css-gradient(#dfdfdf,#f8f8f8); */
+/*
+	Grid Mixin
+	----------
+	
+	We use these for making grids work easier.
+	@include GridAssets(2, first); = Two columns, and it's the first column
+*/
+/************************
+ I N L I N E - B L O C K
+~ Gap Removal Technique ~
+
+@usage: @include ib();
+************************/
+/* This is quite an experiment with font sizes.
+ Basically, i'm using a modualr scale for the type. */
 /*********************
 Placeholder Mixin
 Simply use this in a class somewhere to add placeholder styles.
@@ -71,168 +186,116 @@ Simply use this in a class somewhere to add placeholder styles.
     text-align: center;
     margin: 0 auto; }
 
-/************************************
-		B U T T O N   C O L O U R S
-	This mixin gives you a button in any
-	colour that you want. It then decides
-	if the background is dark or light and
-	gives you white or dark grey text colour.
-*************************************/
-/* 
-	Counting Elements can be fun.
-	http://www.sitepoint.com/using-sass-quantity-queries/
-
-	// If there are exactly 5 elements:
-	@include count-is(5){
-		// Say something beautiful
-	}
-	
-	// If there are less than 3 elements:
-	@include count-is-less-than(3){
-		// Say something beautiful
-	}
-
-	// If there are 3 or more elements:
-	@include count-is-more-than(3){
-		// Say something beautiful
-	}
-
-*/
-/************************
- I N L I N E - B L O C K
-~ Gap Removal Technique ~
-
-@usage: @include ib();
-************************/
-/*********************
-C O N T E N T   C H O R E O G R A P H Y
-Something that will reorder your content if used correctly.
-And on the right browser, of course.
-**********************/
-/* This is quite an experiment with font sizes.
- Basically, i'm using a modualr scale for the type. */
-/* 	This mixin will help you nest mediaqueries easier.
-	@Usage:
-		@include wider-than(mobile) 	{ width: 55%; 	}
-		@include wider-than(phablet) 	{ width: 65%; 	}
-		@include wider-than(tablet) 	{ width: 75%;	}
-
-	Uses the breakpoint map defined inside _breakpoints.scss
-*/
-/* Font Smoothing - http://maximilianhoffmann.com/posts/better-font-rendering-on-osx */
-/*********************
-Background colour based on brightness
-*********************/
 body {
-  font-family: "Fira Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Hind Vadodara", sans-serif;
   font-smoothing: antialiased;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: greyscale; }
 
 p {
   font-size: 1.5rem;
-  font-family: "Fira Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Hind Vadodara", sans-serif;
   font-weight: 400;
   line-height: 1.5; }
 
 h1, h2, h3, h4, h5, h6 {
   text-rendering: optimizelegibility;
-  color: #000;
+  color: #0d0d0d;
   font-weight: 300;
   margin: 0;
-  font-family: "Fira Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+  font-family: "Hind Vadodara", sans-serif; }
 
 h1, .h1 {
   font-size: 2.2181rem;
   font-weight: 600; }
-  @media only screen and (min-width: 37rem) {
+  @media (min-width: 40rem) {
     h1, .h1 {
       font-size: 2.36671rem; } }
-  @media only screen and (min-width: 48rem) {
+  @media (min-width: 50rem) {
     h1, .h1 {
       font-size: 2.52528rem; } }
-  @media only screen and (min-width: 55rem) {
+  @media (min-width: 58rem) {
     h1, .h1 {
       font-size: 2.69447rem; } }
-  @media only screen and (min-width: 62rem) {
+  @media (min-width: 65rem) {
     h1, .h1 {
       font-size: 2.875rem; } }
 
 h2, .h2 {
   font-size: 1.44658rem;
   font-weight: 600; }
-  @media only screen and (min-width: 37rem) {
+  @media (min-width: 40rem) {
     h2, .h2 {
       font-size: 1.5435rem; } }
-  @media only screen and (min-width: 48rem) {
+  @media (min-width: 50rem) {
     h2, .h2 {
       font-size: 1.64692rem; } }
-  @media only screen and (min-width: 55rem) {
+  @media (min-width: 58rem) {
     h2, .h2 {
       font-size: 1.75726rem; } }
-  @media only screen and (min-width: 62rem) {
+  @media (min-width: 65rem) {
     h2, .h2 {
       font-size: 1.875rem; } }
 
 h3, .h3 {
   font-size: 1.15727rem;
-  font-family: "Fira Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #0000ff; }
-  @media only screen and (min-width: 37rem) {
+  font-family: "Hind Vadodara", sans-serif;
+  color: #005eff; }
+  @media (min-width: 40rem) {
     h3, .h3 {
       font-size: 1.2348rem; } }
-  @media only screen and (min-width: 48rem) {
+  @media (min-width: 50rem) {
     h3, .h3 {
       font-size: 1.31754rem; } }
-  @media only screen and (min-width: 55rem) {
+  @media (min-width: 58rem) {
     h3, .h3 {
       font-size: 1.40581rem; } }
-  @media only screen and (min-width: 62rem) {
+  @media (min-width: 65rem) {
     h3, .h3 {
       font-size: 1.5rem; } }
 
 h4, .h4 {
   font-size: 0.86795rem; }
-  @media only screen and (min-width: 37rem) {
+  @media (min-width: 40rem) {
     h4, .h4 {
       font-size: 0.9261rem; } }
-  @media only screen and (min-width: 48rem) {
+  @media (min-width: 50rem) {
     h4, .h4 {
       font-size: 0.98815rem; } }
-  @media only screen and (min-width: 55rem) {
+  @media (min-width: 58rem) {
     h4, .h4 {
       font-size: 1.05436rem; } }
-  @media only screen and (min-width: 62rem) {
+  @media (min-width: 65rem) {
     h4, .h4 {
       font-size: 1.125rem; } }
 
 h5, .h5 {
   font-size: 0.77151rem; }
-  @media only screen and (min-width: 37rem) {
+  @media (min-width: 40rem) {
     h5, .h5 {
       font-size: 0.8232rem; } }
-  @media only screen and (min-width: 48rem) {
+  @media (min-width: 50rem) {
     h5, .h5 {
       font-size: 0.87836rem; } }
-  @media only screen and (min-width: 55rem) {
+  @media (min-width: 58rem) {
     h5, .h5 {
       font-size: 0.93721rem; } }
-  @media only screen and (min-width: 62rem) {
+  @media (min-width: 65rem) {
     h5, .h5 {
       font-size: 1rem; } }
 
 h6, .h6 {
   font-size: 0.65578rem; }
-  @media only screen and (min-width: 37rem) {
+  @media (min-width: 40rem) {
     h6, .h6 {
       font-size: 0.69972rem; } }
-  @media only screen and (min-width: 48rem) {
+  @media (min-width: 50rem) {
     h6, .h6 {
       font-size: 0.7466rem; } }
-  @media only screen and (min-width: 55rem) {
+  @media (min-width: 58rem) {
     h6, .h6 {
       font-size: 0.79663rem; } }
-  @media only screen and (min-width: 62rem) {
+  @media (min-width: 65rem) {
     h6, .h6 {
       font-size: 0.85rem; } }
 
@@ -249,7 +312,7 @@ dl, dd, ol, ul, figure {
  * Basic styling
  */
 body {
-  font-family: "Fira Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Hind Vadodara", sans-serif;
   font-size: 100%;
   line-height: 1.5;
   font-weight: 400;
@@ -296,7 +359,7 @@ li > ol {
  * Links
  */
 a {
-  color: #0000ff;
+  color: #005eff;
   text-decoration: none; }
   a:hover {
     text-decoration: underline; }
@@ -354,15 +417,15 @@ pre {
   width: 100%;
   margin-right: auto;
   margin-left: auto; }
-  @media (min-width: 48rem) {
+  @media (min-width: 50rem) {
     .wrap, .w, .wrapper {
-      max-width: 48rem; } }
-  @media (min-width: 62rem) {
+      max-width: 40rem; } }
+  @media (min-width: 65rem) {
     .wrap, .w, .wrapper {
-      max-width: 62rem; } }
+      max-width: 50rem; } }
   @media (min-width: 75rem) {
     .wrap, .w, .wrapper {
-      max-width: 75rem; } }
+      max-width: 65rem; } }
 
 .ma {
   margin-right: auto;
@@ -520,7 +583,7 @@ pre {
     color: #099; }
 
 .note {
-  background-color: #0000ff;
+  background-color: #005eff;
   border-radius: 3px;
   padding: 0.125rem 0.5rem;
   color: white;
@@ -537,8 +600,8 @@ pre {
     width: 0;
     position: absolute;
     pointer-events: none;
-    border-color: rgba(0, 0, 255, 0);
-    border-left-color: #0000ff;
+    border-color: rgba(0, 94, 255, 0);
+    border-left-color: #005eff;
     border-width: 5px;
     margin-top: -5px; }
 
@@ -547,15 +610,27 @@ pre {
   border-bottom: 1px solid rgba(0, 0, 0, 0.05); }
 
 .site-title {
-  font-family: "Fira Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 3rem;
+  font-family: "Hind Vadodara", sans-serif;
+  font-size: 1.92878rem;
   font-weight: 600;
   display: inline-block;
   vertical-align: middle;
   text-align: center;
   width: 100%;
-  color: #000; }
-  @media (min-width: 48rem) {
+  color: #0d0d0d; }
+  @media (min-width: 40rem) {
+    .site-title {
+      font-size: 2.05801rem; } }
+  @media (min-width: 50rem) {
+    .site-title {
+      font-size: 2.19589rem; } }
+  @media (min-width: 58rem) {
+    .site-title {
+      font-size: 2.34302rem; } }
+  @media (min-width: 65rem) {
+    .site-title {
+      font-size: 2.5rem; } }
+  @media (min-width: 50rem) {
     .site-title {
       text-align: left;
       width: 30%; } }
@@ -565,18 +640,43 @@ pre {
   vertical-align: middle;
   text-align: center;
   width: 100%; }
-  @media (min-width: 48rem) {
+  @media (min-width: 50rem) {
     .site-nav {
       width: 69%;
       text-align: right; } }
   .site-nav a {
-    font-size: 1.5rem;
+    font-size: 0.6144rem;
     margin-left: 0;
-    font-family: "Fira Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; }
-    @media (min-width: 48rem) {
+    font-family: "Hind Vadodara", sans-serif; }
+    @media (min-width: 40rem) {
       .site-nav a {
-        margin-left: 2rem; } }
-    @media (max-width: 48rem) {
+        font-size: 0.768rem; } }
+    @media (min-width: 50rem) {
+      .site-nav a {
+        font-size: 0.96rem; } }
+    @media (min-width: 58rem) {
+      .site-nav a {
+        font-size: 1.2rem; } }
+    @media (min-width: 65rem) {
+      .site-nav a {
+        font-size: 1.5rem; } }
+    @media (min-width: 50rem) {
+      .site-nav a {
+        margin-left: 1.15727rem; } }
+  @media (min-width: 50rem) and (min-width: 40rem) {
+    .site-nav a {
+      margin-left: 1.2348rem; } }
+  @media (min-width: 50rem) and (min-width: 50rem) {
+    .site-nav a {
+      margin-left: 1.31754rem; } }
+  @media (min-width: 50rem) and (min-width: 58rem) {
+    .site-nav a {
+      margin-left: 1.40581rem; } }
+  @media (min-width: 50rem) and (min-width: 65rem) {
+    .site-nav a {
+      margin-left: 1.5rem; } }
+
+    @media (max-width: 50rem) {
       .site-nav a {
         display: block;
         font-size: 1rem;
@@ -584,42 +684,53 @@ pre {
         float: left; } }
 
 .bilboard {
+  background: #005eff;
+  background: -webkit-linear-gradient(top left, #005eff, #0034ff);
+  background: linear-gradient(to bottom right, #005eff, #0034ff);
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-  padding: 2rem 0;
-  margin: 0 0 2rem; }
+  padding: 2rem;
+  margin: 0 0 2rem;
+  border-radius: 0.25rem; }
   .bilboard strong {
     font-size: 1.15727rem;
     display: inline-block;
-    vertical-align: middle; }
-    @media only screen and (min-width: 37rem) {
+    vertical-align: middle;
+    color: white; }
+    @media (min-width: 40rem) {
       .bilboard strong {
         font-size: 1.2348rem; } }
-    @media only screen and (min-width: 48rem) {
+    @media (min-width: 50rem) {
       .bilboard strong {
         font-size: 1.31754rem; } }
-    @media only screen and (min-width: 55rem) {
+    @media (min-width: 58rem) {
       .bilboard strong {
         font-size: 1.40581rem; } }
-    @media only screen and (min-width: 62rem) {
+    @media (min-width: 65rem) {
       .bilboard strong {
         font-size: 1.5rem; } }
   .bilboard h1 {
-    font-size: 3.08605rem; }
-    @media only screen and (min-width: 37rem) {
+    font-size: 3.08605rem;
+    line-height: 1; }
+    @media (min-width: 40rem) {
       .bilboard h1 {
         font-size: 3.29281rem; } }
-    @media only screen and (min-width: 48rem) {
+    @media (min-width: 50rem) {
       .bilboard h1 {
         font-size: 3.51343rem; } }
-    @media only screen and (min-width: 55rem) {
+    @media (min-width: 58rem) {
       .bilboard h1 {
         font-size: 3.74883rem; } }
-    @media only screen and (min-width: 62rem) {
+    @media (min-width: 65rem) {
       .bilboard h1 {
         font-size: 4rem; } }
     .bilboard h1 a {
-      color: #000;
+      color: white;
       text-decoration: none; }
+  .bilboard .note {
+    color: #005eff;
+    background-color: white; }
+    .bilboard .note:after {
+      border-left-color: white; }
 
 .featured__list {
   margin: 0;
@@ -629,47 +740,60 @@ pre {
   flex-direction: row;
   flex-wrap: wrap; }
   .featured__list--item {
-    flex: 1 0 400px;
-    padding: 2rem 0;
+    flex: 1 0 300px;
+    margin: 0.5rem;
+    padding: 1rem;
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     position: relative; }
     .featured__list--item .note {
       font-size: 0.75rem;
-      top: 2.35rem;
+      top: 1.35rem;
       position: absolute; }
     .featured__list--item .note-nudge {
       padding-left: 5rem; }
     .featured__list--item strong {
-      font-size: 0.96439rem; }
-      @media only screen and (min-width: 37rem) {
+      font-size: 0.77151rem; }
+      @media (min-width: 40rem) {
         .featured__list--item strong {
-          font-size: 1.029rem; } }
-      @media only screen and (min-width: 48rem) {
+          font-size: 0.8232rem; } }
+      @media (min-width: 50rem) {
         .featured__list--item strong {
-          font-size: 1.09795rem; } }
-      @media only screen and (min-width: 55rem) {
+          font-size: 0.87836rem; } }
+      @media (min-width: 58rem) {
         .featured__list--item strong {
-          font-size: 1.17151rem; } }
-      @media only screen and (min-width: 62rem) {
+          font-size: 0.93721rem; } }
+      @media (min-width: 65rem) {
         .featured__list--item strong {
-          font-size: 1.25rem; } }
+          font-size: 1rem; } }
     .featured__list--item h2 {
-      font-size: 0.96439rem;
+      font-size: 1.15727rem;
+      line-height: 1.2;
       font-weight: 400; }
-      @media only screen and (min-width: 37rem) {
+      @media (min-width: 40rem) {
         .featured__list--item h2 {
-          font-size: 1.029rem; } }
-      @media only screen and (min-width: 48rem) {
+          font-size: 1.2348rem; } }
+      @media (min-width: 50rem) {
         .featured__list--item h2 {
-          font-size: 1.09795rem; } }
-      @media only screen and (min-width: 55rem) {
+          font-size: 1.31754rem; } }
+      @media (min-width: 58rem) {
         .featured__list--item h2 {
-          font-size: 1.17151rem; } }
-      @media only screen and (min-width: 62rem) {
+          font-size: 1.40581rem; } }
+      @media (min-width: 65rem) {
         .featured__list--item h2 {
-          font-size: 1.25rem; } }
+          font-size: 1.5rem; } }
+    .featured__list--item.highlight {
+      border-radius: 0.25rem; }
+      .featured__list--item.highlight strong {
+        font-style: italic; }
+      .featured__list--item.highlight a {
+        color: #F4366B; }
+      .featured__list--item.highlight .note {
+        background-color: #F4366B;
+        color: white; }
+        .featured__list--item.highlight .note:after {
+          border-left-color: #F4366B; }
 
-@media (min-width: 48rem) {
+@media (min-width: 50rem) {
   .post-content {
     max-width: 60%; } }
 
@@ -681,21 +805,21 @@ input[type="text"], input[type="email"] {
 
 button {
   color: white;
-  background-color: #0000ff;
+  background-color: #005eff;
   border: 0;
   font-size: 1.15727rem;
   display: block;
   padding: 0.25rem 0.75rem; }
-  @media only screen and (min-width: 37rem) {
+  @media (min-width: 40rem) {
     button {
       font-size: 1.2348rem; } }
-  @media only screen and (min-width: 48rem) {
+  @media (min-width: 50rem) {
     button {
       font-size: 1.31754rem; } }
-  @media only screen and (min-width: 55rem) {
+  @media (min-width: 58rem) {
     button {
       font-size: 1.40581rem; } }
-  @media only screen and (min-width: 62rem) {
+  @media (min-width: 65rem) {
     button {
       font-size: 1.5rem; } }
 

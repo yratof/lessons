@@ -1,21 +1,32 @@
 .bilboard{
-  border-bottom: 1px solid fade-out( black, 0.95 );
 
-  padding: 2rem 0;
+  $type: white;
+  @include linear-gradient( to bottom right, $brand-colour , adjust-hue( $brand-colour, 10deg ) );
+  border-bottom: 1px solid fade-out( black, 0.95 );
+  padding: 2rem;
   margin: 0 0 2rem;
+  border-radius: 0.25rem;
 
   strong{
     @include modular( 1.5rem );
     display: inline-block;
     vertical-align: middle;
+    color: $type;
   }
 
   h1{
     @include modular( 4rem );
+    line-height: 1;
     a{
-      color: $text-colour;
+      color: $type;
       text-decoration: none;
     }
+  }
+
+  .note{
+    color: $brand-colour;
+    background-color: white;
+    &:after{ border-left-color: white; }
   }
 }
 
@@ -31,14 +42,15 @@
     flex-wrap: wrap;
 
     @at-root #{&}--item {
-      flex: 1 0 400px;
-      padding: 2rem 0;
+      flex: 1 0 300px;
+      margin: 0.5rem;
+      padding: 1rem;
       border-bottom: 1px solid fade-out( black, 0.95 );
       position: relative;
 
       .note {
         font-size: 0.75rem;
-        top: 2.35rem;
+        top: 1.35rem;
         position: absolute;
       }
 
@@ -47,15 +59,38 @@
       }
 
       strong{
-        @include modular( 1.25rem );
+        @include modular( 1rem );
       }
+
       h2{
-        @include modular( 1.25rem );
+        @include modular( 1.5rem );
+        line-height: 1.2;
         font-weight: 400;
       }
+
+      &.highlight {
+        border-radius: 0.25rem;
+
+        strong{
+          font-style: italic;
+        }
+
+        a{
+          color: $brand-alt;
+        }
+
+        .note{
+          background-color: $brand-alt;
+          color: white;
+          &:after{ border-left-color: $brand-alt }
+        }
+      }
+
     }
   }
 }
+
+
 
 .post-content{
   @include wider-than(tablet){
