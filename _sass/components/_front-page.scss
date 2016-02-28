@@ -1,10 +1,10 @@
 .bilboard{
 
   $type: white;
-  @include linear-gradient( to bottom right, $brand-colour , adjust-hue( $brand-colour, 10deg ) );
+  @include linear-gradient( to bottom right, $brand-colour , adjust-hue( $brand-colour, 40deg ) );
   border-bottom: 1px solid fade-out( black, 0.95 );
-  padding: 2rem;
-  margin: 0 0 2rem;
+  @include modular-element( padding, 2rem );
+  @include modular-element( margin-bottom, 2rem );
   border-radius: 0.25rem;
 
   strong{
@@ -15,7 +15,7 @@
   }
 
   h1{
-    @include modular( 4rem );
+    @include modular( 4rem, $major-second );
     line-height: 1;
     a{
       color: $type;
@@ -24,6 +24,7 @@
   }
 
   .note{
+    @include modular( 1rem );
     color: $brand-colour;
     background-color: white;
     &:after{ border-left-color: white; }
@@ -43,8 +44,8 @@
 
     @at-root #{&}--item {
       flex: 1 0 300px;
-      margin: 0.5rem;
-      padding: 1rem;
+      @include modular-element( margin, 0.5rem );
+      @include modular-element( padding, 1rem );
       border-bottom: 1px solid fade-out( black, 0.95 );
       position: relative;
 
@@ -89,6 +90,55 @@
     }
   }
 }
+
+
+/*
+ * Variables
+ */
+$element:     '.featured__list--item';
+$length:      1s;
+$stage:       0.05s;
+$movement:    1rem;
+$transition:  cubic-bezier(0.175,0.885,0.32,1.275);
+
+/*
+ * Lists have some movement
+ */
+
+#{$element} {
+  transform:  translateX(#{$movement});
+  opacity: 0;
+  // When menu is open, animate!
+  animation: delay $length $transition forwards;
+}
+/*
+ * For every list in succession, delay incrementally
+ */
+@for $i from 1 through 50 {
+  $delay: $stage * $i;
+  #{$element}:nth-of-type(#{$i}){
+    animation-delay: $delay;
+  }
+}
+
+
+// Animate
+@keyframes delay{
+  from {
+    transform:  translateX(#{$movement});
+    opacity: 0;
+  }
+  to {
+    transform:  translateX(0);
+    opacity: 1;
+  }
+}
+
+
+
+
+
+
 
 
 
