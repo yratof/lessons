@@ -52,7 +52,7 @@ module.exports = function (grunt) {
           options: {
             sourceMap: true,
             relativeAssets: false,
-            outputStyle: 'expanded',
+            outputStyle: 'compressed',
             sassDir: '_sass',
             cssDir: '_site/css'
           },
