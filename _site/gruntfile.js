@@ -6,7 +6,8 @@ module.exports = function (grunt) {
     require('time-grunt')(grunt);
 
     // Load all Grunt tasks that are listed in package.json automagically
-    require('load-grunt-tasks')(grunt);
+    // require('load-grunt-tasks')(grunt);
+    require('jit-grunt')(grunt);
 
     grunt.initConfig({
       pkg: grunt.file.readJSON('package.json'),
@@ -18,6 +19,42 @@ module.exports = function (grunt) {
           },
           jekyllServe: {
             command: 'jekyll serve'
+          }
+        },
+
+        htmlmin: {
+          dist: {
+            options: {
+              removeComments: true,
+              collapseWhitespace: true,
+              collapseBooleanAttributes: true,
+              removeAttributeQuotes: true,
+              removeRedundantAttributes: true,
+              removeEmptyAttributes: true,
+              minifyJS: true,
+              minifyCSS: true
+            },
+            files: [{
+              expand: true,
+              cwd: '_site',
+              src: '**/*.html',
+              dest: '_site'
+            }]
+          }
+        },
+
+        cssmin: {
+          dist: {
+            options: {
+              keepSpecialComments: 0,
+              check: 'gzip'
+            },
+            files: [{
+              expand: true,
+              cwd: '_site/css',
+              src: ['*.css'],
+              dest: '_site/css'
+            }]
           }
         },
 
@@ -104,7 +141,9 @@ module.exports = function (grunt) {
     // Register the grunt build task
     grunt.registerTask('build', [
       'shell:jekyllBuild',
-      'sass'
+      'sass',
+      'htmlmin',
+      'cssmin'
       ]);
 
     // Register build as the default task fallback
@@ -114,6 +153,5 @@ module.exports = function (grunt) {
         'postcss:dist', // Post Process with Auto-Prefix
         'newer:imagemin:dynamic', // Compress all images
         'concurrent:serve'
-
         );
   };
